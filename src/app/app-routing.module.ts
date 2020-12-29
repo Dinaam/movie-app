@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { DetailComponent } from './detail/detail.component';
 
 const routes: Routes = [
   {
@@ -13,8 +12,10 @@ const routes: Routes = [
     redirectTo: "home",
     pathMatch: "full",
   },
+
   {
-    path: "detail", component: DetailComponent
+    path: 'detail',
+    loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
   }
 ];
 
