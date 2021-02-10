@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 
 @NgModule({
@@ -17,5 +17,7 @@ import { Router } from '@angular/router';
   ],
   declarations: [HomePage]
 })
+
 export class HomePageModule {
+
 }

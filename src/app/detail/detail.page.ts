@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailPage implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  movie: object;
+ 
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.movie = this.router.getCurrentNavigation().extras.state.movie;
+        console.log("movie",this.movie);
+      }
+    });
   }
-
+ 
+  ngOnInit() { }
 }
+
+

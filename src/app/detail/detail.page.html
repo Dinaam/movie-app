@@ -6,8 +6,14 @@
     <ion-title>Page Two</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content fullscreen class="ion-padding">
-  <p>Back-Button is displayed when there is history</p>
-</ion-content>
+<ion-content padding>
+  <ion-card *ngIf="movie">
+    <ion-card-header>
+      <ion-card-title>
+        {{ movie.title }}
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  </ion-content>
 
 <button class="btn btn-primary" [routerLink]="['/settings']">Go</button>
