@@ -9,13 +9,11 @@ import { NavigationExtras, Router } from '@angular/router';
 export class HomePage {
 
 constructor(private router: Router) {}
-  movie = {
-    title: 'Jurassik Park'
-  };
-  openDetailsWithQueryParams() {
+movieName;
+  openDetailsWithName() {
     let navigationExtras: NavigationExtras = {
       state: {
-        movie: this.movie
+        movieName: this.movieName
       }
     };
     this.router.navigate(['detail'], navigationExtras);

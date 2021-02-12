@@ -1,19 +1,19 @@
 <ion-header translucent>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Page Two</ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="/"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Page Two</ion-title>
+	</ion-toolbar>
 </ion-header>
 <ion-content padding>
-  <ion-card *ngIf="movie">
-    <ion-card-header>
-      <ion-card-title>
-        {{ movie.title }}
-      </ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  </ion-content>
+	<ion-card *ngIf="movie">
+		<ion-card-header>
+			<ion-card-title>
+				{{ movie.title }}
+			</ion-card-title>
+		</ion-card-header>
+	</ion-card>
+</ion-content>
 
 <button class="btn btn-primary" [routerLink]="['/settings']">Go</button>

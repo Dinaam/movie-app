@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MoviesService } from '../services/movies.service';
 
 @Component({
   selector: 'app-detail',
@@ -9,12 +10,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DetailPage implements OnInit {
 
   movie: object;
- 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  movieName:string;
+
+  constructor(private route: ActivatedRoute, private router: Router, private moviesService: MoviesService) {
     this.route.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation().extras.state) {
-        this.movie = this.router.getCurrentNavigation().extras.state.movie;
-        console.log("movie",this.movie);
+      let param = this.router.getCurrentNavigation().extras.state;
+      console.log('param',param);
+      if (param && param.movieName) {
+        this.movieName = param.movieName;
+        this.moviesService.getMovie(this.movieName).subscribe(movie => {
+          this.movie = movie;
+        });
       }
     });
   }

@@ -9,11 +9,11 @@
         <ion-col size="10">
           <ion-item>
             <ion-label position="floating" >Movie Name</ion-label>
-            <ion-input padding-left  autofocus="true" clear-input="true" ></ion-input>
+            <ion-input padding-left  [(ngModel)]="movieName" name="movieName" autofocus="true" clear-input="true" ></ion-input>
           </ion-item>
         </ion-col>
         <ion-col size="2" class="ion-align-self-end">
-          <button type="submit" class="btn btn-primary" (click)="openDetailsWithQueryParams()">Go</button>
+          <button type="submit" class="btn btn-primary" (click)="openDetailsWithName()">Go</button>
         </ion-col>
       </ion-row>
     </ion-grid>
