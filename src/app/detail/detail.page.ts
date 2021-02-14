@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Movie } from '../model/Movie';
 import { MoviesService } from '../services/movies.service';
+import{ AppSettings } from '../common/appSettings';
 
 @Component({
   selector: 'app-detail',
@@ -9,7 +11,7 @@ import { MoviesService } from '../services/movies.service';
 })
 export class DetailPage implements OnInit {
 
-  movie: object;
+  firstMovie: Movie;
   movieName:string;
 
   constructor(private route: ActivatedRoute, private router: Router, private moviesService: MoviesService) {
@@ -18,8 +20,10 @@ export class DetailPage implements OnInit {
       console.log('param',param);
       if (param && param.movieName) {
         this.movieName = param.movieName;
-        this.moviesService.getMovie(this.movieName).subscribe(movie => {
-          this.movie = movie;
+        this.moviesService.getMovie(this.movieName).subscribe(res => {
+          console.log('res',res);
+          this.firstMovie = res.results[0];
+          this.firstMovie.url = AppSettings.TMDB_IMAGE_URL+'w500/'+this.firstMovie.poster_path;
         });
       }
     });

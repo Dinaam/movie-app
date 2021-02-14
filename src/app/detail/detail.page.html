@@ -3,16 +3,20 @@
 		<ion-buttons slot="start">
 			<ion-back-button defaultHref="/"></ion-back-button>
 		</ion-buttons>
-		<ion-title>Page Two</ion-title>
+		<ion-title></ion-title>
 	</ion-toolbar>
 </ion-header>
-<ion-content padding>
-	<ion-card *ngIf="movie">
-		<ion-card-header>
-			<ion-card-title>
-				{{ movie.title }}
-			</ion-card-title>
+<ion-content padding fullscreen>
+	<ion-card *ngIf="firstMovie">
+		<img src="{{firstMovie.url}}" />
+		<ion-card-header>	
+			<ion-card-title>{{ firstMovie.title }}  </ion-card-title>
+			<ion-card-subtitle>({{firstMovie.release_date | date:'shortDate':'':'fr-FR'}})</ion-card-subtitle>
+			<ion-icon color="yellow" name="star"></ion-icon> {{firstMovie.vote_average}}
 		</ion-card-header>
+		<ion-card-content>
+			{{firstMovie.overview}}
+		</ion-card-content>
 	</ion-card>
 </ion-content>
 
