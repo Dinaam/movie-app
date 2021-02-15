@@ -1,22 +1,20 @@
 <ion-content [fullscreen]="true" class="container">
-  <ion-text>
-    <h1 class="title">The Movies Search App</h1>
-  </ion-text>
-
-  <form class="form">
-    <ion-grid [fixed]="true">
-      <ion-row ion-align-self-end>
-        <ion-col size="10">
-          <ion-item>
-            <ion-label position="floating" >Nom</ion-label>
-            <ion-input padding-left  [(ngModel)]="movieName" name="movieName" autofocus="true" clear-input="true" ></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col size="2" class="ion-align-self-end">
-          <button type="submit" class="btn btn-primary" (click)="openDetailsWithName()">Go</button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </form>
+  <ion-content fullscreen class="ion-padding" scroll-y="false">
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let trendingMovie of trendingMovies">
+        <ion-card class="trendingCard">
+          <img src="{{photoUrl}}w500{{trendingMovie.poster_path}}" />
+          <ion-card-header>	
+            <ion-card-title>{{ trendingMovie.title }}  </ion-card-title>
+            <ion-card-subtitle>({{trendingMovie.release_date | date:'shortDate':'':'fr-FR'}})</ion-card-subtitle>
+            <ion-icon color="yellow" name="star"></ion-icon> {{trendingMovie.vote_average}}
+          </ion-card-header>
+          <ion-card-content>
+            {{trendingMovie.overview}}
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </ion-content>
 
 </ion-content>

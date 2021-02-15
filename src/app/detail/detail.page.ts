@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from '../model/Movie';
 import { MoviesService } from '../services/movies.service';
-import{ AppSettings } from '../common/appSettings';
+import{ AppSettings, TMDB_IMAGE_URL } from '../common/appSettings';
 
 @Component({
   selector: 'app-detail',
@@ -23,7 +23,7 @@ export class DetailPage implements OnInit {
         this.moviesService.getMovie(this.movieName).subscribe(res => {
           console.log('res',res);
           this.firstMovie = res.results[0];
-          this.firstMovie.url = AppSettings.TMDB_IMAGE_URL+'w500/'+this.firstMovie.poster_path;
+          this.firstMovie.url = TMDB_IMAGE_URL+'w500/'+this.firstMovie.poster_path;
         });
       }
     });

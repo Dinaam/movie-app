@@ -17,7 +17,11 @@ const routes: Routes = [
     redirectTo: "home",
     pathMatch: "full",
   },
-
+  {
+    path: "series",
+    loadChildren: () =>
+      import("./series/series.module").then((m) => m.SeriesPageModule),
+  },
   {
     path: "detail",
     loadChildren: () =>
