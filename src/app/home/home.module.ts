@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { NavigationExtras, Router } from '@angular/router';
+import { TruncatePipe } from '../pipes/truncate';
 
 
 @NgModule({
@@ -13,9 +14,9 @@ import { NavigationExtras, Router } from '@angular/router';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage,TruncatePipe]
 })
 
 export class HomePageModule {

@@ -1,23 +1,13 @@
-<ion-header translucent>
-	<ion-toolbar>
-		<ion-buttons slot="start">
-			<ion-back-button defaultHref="/"></ion-back-button>
-		</ion-buttons>
-		<ion-title></ion-title>
-	</ion-toolbar>
-</ion-header>
-<ion-content padding fullscreen>
-	<ion-card *ngIf="firstMovie">
-		<img src="{{firstMovie.url}}" />
+<ion-content *ngIf="movie" padding fullscreen class="movie" >
+<img class="backdrop" src="{{photoUrl}}w500{{movie.backdrop_path}}" style="filter: grayscale(90%);" />
+<ion-content >
+		<img src="{{movie.url}}" />
 		<ion-card-header>	
-			<ion-card-title>{{ firstMovie.title }}  </ion-card-title>
-			<ion-card-subtitle>({{firstMovie.release_date | date:'shortDate':'':'fr-FR'}})</ion-card-subtitle>
-			<ion-icon color="yellow" name="star"></ion-icon> {{firstMovie.vote_average}}
+			<ion-card-title>{{ movie.title }}  </ion-card-title>
+			<ion-card-subtitle>({{movie.release_date | date:'shortDate':'':'fr-FR'}})</ion-card-subtitle>
+			<ion-icon color="yellow" name="star"></ion-icon> {{movie.vote_average}}
 		</ion-card-header>
 		<ion-card-content>
-			{{firstMovie.overview}}
+			{{movie.overview}}
 		</ion-card-content>
-	</ion-card>
 </ion-content>
-
-<button class="btn btn-primary" [routerLink]="['/settings']">Go</button>

@@ -3,6 +3,7 @@ import { NavigationExtras, Router } from '@angular/router';
 import { IonTabs } from '@ionic/angular';
 import { MoviesService } from '../services/movies.service';
 import{ TMDB_IMAGE_URL} from '../common/appSettings';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: "app-home",
@@ -11,16 +12,16 @@ import{ TMDB_IMAGE_URL} from '../common/appSettings';
 })
 export class HomePage {
   photoUrl: string;
+  randomTrendingMovie;
   constructor(private router: Router, private moviesService: MoviesService) {}
-  movieName;
   trendingMovies;
   slideOpts ={
-    slidesPerView:3
+    slidesPerView:2
   }
-  openDetailsWithName() {
+  onGoToDetail(id) {
     let navigationExtras: NavigationExtras = {
       state: {
-        movieName: this.movieName,
+        id: id,
       },
     };
     this.router.navigate(["detail"], navigationExtras);
@@ -30,7 +31,12 @@ export class HomePage {
     this.photoUrl = TMDB_IMAGE_URL;
     this.moviesService.getTrendingsMovies().subscribe(res => {
       this.trendingMovies = res.results;
-      console.log(this.trendingMovies);
+      let rand = Math.random();
+      let max = this.trendingMovies.length -1
+      rand = Math.round(rand * (max-1));
+      console.log('rand',rand);
+      this.randomTrendingMovie = this.trendingMovies[rand];
+      console.log('random',this.randomTrendingMovie)
     });
   }
 }

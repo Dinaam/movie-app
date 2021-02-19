@@ -1,38 +1,77 @@
-#container {
-  text-align: center;
+.homescreen-content {
+  display: flex;
+  /* displays flex-items (children) inline */
+  flex-direction: column;
+  /* stacks them vertically */
+  height: 100vh;
+  /* 100% of the viewport height */
+  box-sizing: inherit;
+}
 
+.homescreen-content>div {
+  box-sizing: inherit;
+  display: flex;
+  justify-content: center;
+  /* horizontally centered */
+  align-items: center;
+  /* vertically centered */
+  flex: 1;
+  /* each stretches and takes equal height of the parent (50vh) */
+}
+
+.trendingCard {
+  margin-left: 0px;
+  margin-right: 5px;
+  margin-bottom: 0px;
+  height: 325px;
+}
+
+.trendingCard ion-card-title {
+  font-size: 15px;
+  margin-top: 2px;
+}
+
+.trendingCard ion-card-header {
+  padding: 0px;
+  padding-inline: 0px;
+}
+
+.trendingCard img {
+  height: 50%;
+}
+
+.randomTrendingMovie {
+  position: relative;
+}
+
+.randomTrendingMovie .backdrop {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  height: 100%;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.randomTrendingMovie .detail {
+  margin-top: 100px;
+  position: relative;
+  z-index: 9;
+  color: white;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.randomTrendingMovie .detail .title{
+  font-weight: bold;
+  font-size: 15px;
 }
 
-#container a {
-  text-decoration: none;
+.randomTrendingMovie .detail .poster {
+  height: 178px;
+  margin-left: 4px;
+}
+.randomTrendingMovie .detail .resume {
+  font-size: 13px;
+}
+.detailBtn{
+  font-weight: bold;
 }
 
-.title{
-  color: #2c3e50;
-  text-align: center;
-  margin-top: 30%;
+.star {
+  color: yellow;
 }
-
-.form{
-  margin-top: 40%;
-}
-

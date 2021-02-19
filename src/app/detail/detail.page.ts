@@ -11,25 +11,26 @@ import{ AppSettings, TMDB_IMAGE_URL } from '../common/appSettings';
 })
 export class DetailPage implements OnInit {
 
-  firstMovie: Movie;
-  movieName:string;
+  movie: Movie;
+  movieId:number;
+  photoUrl: string;
 
   constructor(private route: ActivatedRoute, private router: Router, private moviesService: MoviesService) {
     this.route.queryParams.subscribe(params => {
       let param = this.router.getCurrentNavigation().extras.state;
       console.log('param',param);
-      if (param && param.movieName) {
-        this.movieName = param.movieName;
-        this.moviesService.getMovie(this.movieName).subscribe(res => {
-          console.log('res',res);
-          this.firstMovie = res.results[0];
-          this.firstMovie.url = TMDB_IMAGE_URL+'w500/'+this.firstMovie.poster_path;
+      if (param && param.id) {
+        this.movieId = param.id;
+        this.moviesService.getMovie(this.movieId).subscribe(res => {
+          this.movie = res;
         });
       }
     });
   }
  
-  ngOnInit() { }
+  ngOnInit() {
+    this.photoUrl = TMDB_IMAGE_URL;
+   }
 }
 
 

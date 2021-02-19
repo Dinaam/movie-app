@@ -1,21 +1,23 @@
-<ion-app>
+<ion-app >
   <ion-router-outlet></ion-router-outlet>
-  <ion-toolbar>
-
-    <ion-buttons slot="secondary">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
       <ion-button>
         <ion-icon slot="icon-only" name="search"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-  <ion-tabs #tabs (ionTabsDidChange)="setCurrentTab()" selectedIndex="0">
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home">
+  <ion-tabs #tabs (ionTabsDidChange)="setCurrentTab()" selectedIndex="0" >
+    <ion-tab-bar color="primary" slot="bottom">
+      <ion-tab-button tab="home" color="secondary">
         <ion-icon name="film-outline"></ion-icon>
         <ion-label>Movies</ion-label>
       </ion-tab-button>
   
-      <ion-tab-button tab="series">
+      <ion-tab-button tab="series" color="secondary">
         <ion-icon name="tv-outline"></ion-icon>
         <ion-label>Tv Shows</ion-label>
       </ion-tab-button>
